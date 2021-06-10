@@ -29,37 +29,92 @@ Windows systems often come with firewalls bundled and enabled, and this may inte
 You can try temporarily disable your firewall to see if it helps with connecting to Kolibri. If so, you'll want to turn the firewall back on and then create a exception rule for Kolibri to allow access.
 
 
-Troubleshoot Database Issues
-----------------------------
+.. _malformed_db:
 
-In case you receive the ``database disk image is malformed`` error in Terminal, try running these commands.
+Malformed database
+------------------
 
-The ``sqlite3`` command is necessary. This can be installed with ``sudo apt install sqlite3`` on a Debian-based system.
+In case you receive the ``database disk image is malformed`` error in Terminal, it does not mean that the database cannot be fixed. The error occurs in cases where Kolibri has been shutdown uncleanly, for instance due to a power outage or a software exception.
 
-.. code-block:: bash
+.. tip:: The ``sqlite3`` command is necessary. This can be installed with ``sudo apt install sqlite3`` on a Debian-based system.
 
-        # Go to where your Kolibri data is stored
-        cd ~/.kolibri
-        # Create a directory to save the old DB in
-	mkdir -p malformed
-        # Copy the old malformed DB
-	cp -b db.sqlite3* malformed/
-        # Create a new database
-	sqlite3 db.sqlite3 .dump | sqlite3 fixed.db
-        # Move to the active location
-	mv fixed.db db.sqlite3
-        # Remove so-called "write-ahead log"
-	rm -f db.sqlite3-wal db.sqlite3-shm
+#. Open a terminal and change the current working directory to your Kolibri's home folder. Keep the terminal open and continue with the rest of the commands.
 
-After this, you should be able to start Kolibri again.
+    .. code-block:: bash
+
+      cd ~/.kolibri
+
+#. Create a new directory and save the old database.
+
+    .. code-block:: bash
+
+      mkdir -p malformed
+      cp -b db.sqlite3* malformed/
+
+#. Create a new database and move it to the active location.
+   
+    .. code-block:: bash
+
+      sqlite3 db.sqlite3 .dump | sqlite3 fixed.db
+      mv fixed.db db.sqlite3
+
+#. Remove temporary database files.
+   
+    .. code-block:: bash
+
+      rm -f db.sqlite3-* job_storage.sqlite3* notifications.sqlite3* process_cache/cache.db
+
+#. Start Kolibri.
 
 For further assistance, please report the issue on our `Community Forums <https://community.learningequality.org/>`_, stating the operating system and Kolibri version.
 
+Corrupted database
+------------------
+
+The instructions in :ref:`malformed_db` apply only to *malformed* databases, which is a simple form of database corruption that has been reported fixable in all cases. If those steps did not work, or you do not see the ``database disk image is malformed`` error, your database is more severely corrupted.
+
+**If your SQLite3 version is 3.29 or newer**, you can use the `.recover command <https://sqlite.org/cli.html#recover>`__ to restore other types of database corruption. This can happen if Kolibri is terminated abruptly or if your storage media fails.
+
+.. tip:: You can see your SQLite3 version by running ``sqlite3 --version`` from command line. If your database is corrupted but your SQLite3 is too old to run ``.recover``, consider copying your ``db.sqlite3`` file to a different system with a new SQLite3.
+
+To apply ``.recover`` on a broken database, open your Terminal and run the following commands (the sequence is similar to above where you used ``.dump``):
+
+#. Open a terminal and change the current working directory to your Kolibri's home folder. Keep the terminal open and continue with the rest of the commands.
+
+    .. code-block:: bash
+
+      cd ~/.kolibri
+
+#. Create a new directory and save the old database.
+
+    .. code-block:: bash
+
+      mkdir -p malformed
+      cp -b db.sqlite3* malformed/
+
+#. Apply the ``.restore`` command to the database and move the restored database to the active location. Check the command line outputs for potential errors.
+   
+    .. code-block:: bash
+
+      sqlite3 db.sqlite3 .recover | sqlite3 fixed.db
+      mv fixed.db db.sqlite3
+
+#. Remove temporary database files.
+   
+    .. code-block:: bash
+
+      rm -f db.sqlite3-* job_storage.sqlite3* notifications.sqlite3* process_cache/cache.db
+
+#. Start Kolibri.
+
+For further assistance, please report the issue on our `Community Forums <https://community.learningequality.org/>`_, stating the operating system and Kolibri version.
 
 Videos are not playing
 ----------------------
 
-Make sure to check the :ref:`system requirements <sys_reqs>` to see if you can support video playback. Please report any issues on our `Community Forums <https://community.learningequality.org/>`_, stating the operating system and browser you are using.
+Make sure to check the :ref:`system requirements <sys_reqs>` to see if you can support video playback. If you encounter the error *No compatible source was found for this media* when you try to play videos in Firefox on Ubuntu for example, you must install the `restricted extras package <https://help.ubuntu.com/community/RestrictedFormats>`__. If you are still unable to view videos in open source browsers like Chromium or Firefox, try using Google Chrome.
+
+Please report any issues on our `Community Forums <https://community.learningequality.org/>`_, stating the operating system and browser you are using.
 
 
 Antivirus
@@ -79,7 +134,7 @@ Some overzealous antivirus programs on Windows platform may preventively impede 
 Problems with import and export from USB drives
 -----------------------------------------------
 
-Kolibri needs read and write access to USB drives in order to import and export content. There are several possibilities why you may encounter issues during this procedure.
+Kolibri needs read and write access to USB drives in order to import and export channels. There are several possibilities why you may encounter issues during this procedure.
 
 * **User account does not have access**:
 
@@ -87,11 +142,11 @@ Kolibri needs read and write access to USB drives in order to import and export 
   - you have upgraded Kolibri on Debian from a version prior to v0.10. Follow these instructions to :ref:`change the ownership of Kolibri system service <changing-system-user>` from one user account to another
   - to grant access to USB drives to other accounts, refer to the documentation of your operating system
 
-* **Write access denied**: Some USB drives will experience problems when they are unplugged from the computer in an "unclean" way. If you are denied access to write, look for options to "fix" or "repair" the file system.
+* **Write access denied**: Some USB drives will experience problems when they are unplugged from the computer in an *unclean* way. If you are denied access to write, look for options to *fix* or *repair* the file system.
 
-* **Data failures**: Copying the data can take a long time. If you do not see the final success confirmation message after the copy apparently finishes, do not assume that the data has been imported or exported correctly. Restart the process instead, otherwise you risk inconsistent and malfunctioning content data.
+* **Data failures**: Copying the data can take a long time. If you do not see the final success confirmation message after the copy apparently finishes, do not assume that the data has been imported or exported correctly. Restart the process instead, otherwise you risk inconsistent and malfunctioning data resources.
 
-* **Hardware life expectancy**: SD and flash storage drives can "expire". Reading and writing large quantities of content data, especially on older or models with smaller capacity, may produce data errors over time.
+* **Hardware life expectancy**: SD and flash storage drives have a limited lifespan. Reading and writing large quantities of data, especially on older or models with smaller capacity, may produce data errors over time.
 
 
 Locate Kolibri log files

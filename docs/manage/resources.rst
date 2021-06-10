@@ -6,7 +6,7 @@ Channels and Resources
 .. note::
   To manage Kolibri channels and resources you must have the appropriate permissions.
 
-Kolibri **Channel** is a collection of educational resources (video, audio, document files or interactive apps) prepared and organized by the channel curator for their use in Kolibri. You can import and export channels in Kolibri from the **Channels** tab of the **Device** dashboard (|channels| icon).
+Kolibri **Channel** is a collection of educational resources (video, audio, document files or interactive apps) prepared and organized by the channel curator for their use in Kolibri. You can import and export channels in Kolibri from the |channel| **Channels** tab of the |device| **Device** dashboard.
 
   .. figure:: /img/manage-resources.png
     :alt: Open the Device page and Channels tab to see the list of available channels on your device
@@ -25,7 +25,7 @@ Each Kolibri channel has its own **token** in `Kolibri Studio <https://studio.le
 Kolibri Task Manager
 --------------------
 
-You can start various resource management tasks (import, export, deletion, update, etc.) in Kolibri and observe their progress in the *task manager* page. Each time you start a task, Kolibri will display the **Tasks** page, and depending on your workflow, you may have some *Finished*, *In-progress*, *Canceled** or tasks *Waiting* in the queue.
+You can start various resource management tasks (import, export, deletion, update, etc.) in Kolibri and observe their progress in the *task manager* page. Each time you start a task, Kolibri will display the **Tasks** page, and depending on your workflow, you may have some *Finished*, *In-progress*, *Canceled* or tasks *Waiting* in the queue.
 
   .. figure:: /img/task-queue.png
     :alt: 
@@ -42,7 +42,9 @@ Import Channels and Resources into Kolibri
 
 .. warning:: **Important**: You **cannot** import your own files (videos, documents, etc.) as learning resources directly into Kolibri from your computer. Kolibri can **only** import resources from:
 
-  * already curated **channels** on `Kolibri Studio <https://studio.learningequality.org/accounts/login/>`__, if the computer running Kolibri is connected to internet
+  * already curated channels on `Kolibri Studio <https://studio.learningequality.org/accounts/login/>`__, if the computer running Kolibri is connected to internet
+  
+  * :ref:`another device in the same local network <local_network>` through *peer import*
 
   OR 
 
@@ -50,17 +52,15 @@ Import Channels and Resources into Kolibri
 
   **To import your own files for use in Kolibri**, you need to register at `Kolibri Studio <https://studio.learningequality.org/accounts/login/>`__ site (it's free), and build your own channel that you can subsequently import into Kolibri. Read more about how to do this in our `Kolibri Studio user guide <https://kolibri-studio.readthedocs.io/en/latest/index.html>`__.
 
+..  raw:: html
 
-.. warning
-  Kolibri database and resources may become temporarily unavailable while importing or updating large resources channels. Therefore, as a precaution, we recommend you:
+    <iframe width="670" height="380" src="https://www.youtube-nocookie.com/embed/qLbSaAGs-CA?rel=0&modestbranding=1&cc_load_policy=1&iv_load_policy=3" frameborder="0" allow="accelerometer; gyroscope" allowfullscreen></iframe><br /><br />
 
-  * avoid other interactions with Kolibri (view learner pages or manage users, for example) while resources import is in progress
-  * perform these maintenance operations outside the periods when system is being used by learners
-
+Captions for the video are available in English, French, Swahili, Arabic, Hindi, Marathi and Brazilian Portuguese.
 
 To import resources into Kolibri, follow these steps.
 
-#. Click :guilabel:`IMPORT` in the **Channels** tab on the **Device** page.
+#. Click :guilabel:`IMPORT` in the |channel| **Channels** tab on the |device| **Device** page.
 #. Choose the source option: **Kolibri Studio**, **Local network or internet**, or **Attached drive or memory card**.
 
   .. figure:: /img/import-choose-source.png
@@ -86,7 +86,7 @@ If the computer where Kolibri is running has an Internet connection with the suf
       Select which public channel on Kolibri Studio you want to import resources from.
 
     
-    Channels from which you have already imported some or all resources onto your device will have the |on-device| icon. 
+    Channels from which you have already imported some or all resources onto your device will have the |onDevice| (on device) icon. 
 
 
 2. Click :guilabel:`SELECT RESOURCES` for the desired channel, and wait for Kolibri to load the channel information and the topic tree.
@@ -103,7 +103,7 @@ If the computer where Kolibri is running has an Internet connection with the suf
 
 #. Click the :guilabel:`IMPORT` button once you finish selecting all the desired resources.
 
-#. You will see the import progress in the **Task manager** page. Once the import concludes, the newly imported channel and resources display on the **Channels** page.
+#. You will see the import progress in the **Task manager** page. Once the import concludes, the newly imported channel and resources display on the |channel| **Channels** page.
 
     .. figure:: /img/import-CC.png
   	  :alt: resources import progress bar will display the percentage of the download
@@ -134,7 +134,9 @@ Import with Token
 #. Click :guilabel:`CONTINUE` to unlock the channel, or :guilabel:`CANCEL` to exit.
 #. Proceed to select and import channel topics and resources as for the public channels.
 
-    Unlisted or private channels in the list are indicated with the |unlisted-channel| icon.
+   Unlisted or private channels in the list are indicated with the |unlistedchannel| (unlisted channel) icon.
+
+   .. warning:: Unlisted channel **must be published** on Studio before the token can be used to import it.
 
 Import More Resources
 """""""""""""""""""""
@@ -144,6 +146,19 @@ To add more learning resources from a channel that you previously imported resou
 #. Click the :guilabel:`MANAGE` button for the desired channel.
 #. Click :guilabel:`IMPORT MORE`.
 #. Repeat the selection procedure from above. 
+
+Import Channel Collection
+"""""""""""""""""""""""""
+
+Channel collection is a package of multiple Studio channels all associated with its unique **collection token**. You can use a collection token to import multiple channels at once in Kolibri, instead of importing channels with their individual tokens. To import channel collection, follow these steps.
+
+#. Click the **Select entire channels instead** link above the list of public channels in Kolibri.
+#. Enter the **collection token** received from the colection curator on Kolibri Studio.
+#. Click :guilabel:`CONTINUE` to unlock the collection, or :guilabel:`CANCEL` to exit.
+#. Proceed to select and import channels.
+
+   .. note:: Once import has finished, you will not see the *collection*, but just the channels it unclocked, listed among the others imported on the device.
+
 
 
 .. _local_network:
@@ -182,9 +197,14 @@ Follow these steps to import from a local network.
     - inability to be discovered by peers
     - inability to discover other peers
     - ability to be discovered, but not be available for import
-
+  
+  * On Windows 10 you need to explicitly allow both **Python** and ``kolibri.exe`` processes through the firewall, to be able to add a peer for import. Auto-discovery might still not work, but you will be able to add the peer IP manually and import resources.
 
   * This feature was introduced in Kolibri version 0.11, and all the server devices to be used for this type of resources import **must have the Kolibri version 0.11 or later** running.
+
+
+.. tip:: If want to :ref:`allow peer import of your private channels <allow_peer_import>`, which means that those channels will be visible and available for import on other peer devices in the same network, make sure to enable that option in the **Device > Settings**. 
+
 
 .. _local_drive:
 
@@ -203,20 +223,18 @@ If the computer where Kolibri server is running does not have access to Internet
   .. figure:: /img/import-local-drive2.png
     :alt: Importing resources from a local drive presents the same interface options as importing from Kolibri Studio.
 
-.. TO-DO (image)
-
 
 Update Channels
 ---------------
 
-Public channels on Kolibri Studio are periodically updated from their original sources. Private and unlisted channels that you have on your local Kolibri device may also have changed since you first imported them. You can update your local channels from Kolibri Studio from online sources, from another updated device in your local network or from an external drive where the latest version of the channels has been :ref:`previously exported <export>`.
+Public channels on Kolibri Studio are periodically updated from their original sources. Private and unlisted channels that you have on your local Kolibri device may also have changed since you first imported them. You can update your local channels from Kolibri Studio from online sources, from another updated device in your local network or from an external drive where the latest version of the channels have been :ref:`previously exported <export>`.
 
 .. warning:: It is recommended to schedule and perform channel updates only during periods of low activity on the server. Updating resources while server is receiving requests by client devices may cause errors or performance issues.
 
 To update a channel to its latest version and import new resources into Kolibri, follow these steps.
 
 #. Click the :guilabel:`MANAGE` button for the channel you want to update.
-#. When a new channel version is available, you will see the notification. Click the :guilabel:`VIEW CHANGES` button.
+#. When a new channel version is available, you will see the notification. Click the *View changes* link.
    
     .. figure:: /img/view-changes.png
       :alt: 
@@ -228,10 +246,26 @@ To update a channel to its latest version and import new resources into Kolibri,
 
       Notification for the new version of the resources channel.
 
+
+#. Click the :guilabel:`UPDATE CHANNEL` button, and then :guilabel:`CONTINUE` to confirm.
+
+    .. figure:: /img/update-channel-confirm.png
+      :alt: 
+
+      Confirm that you want to update channel to the new version.
+
     .. warning:: Use caution when updating channels that have been used to make **currently-active** :ref:`lessons <manage_lessons>` and :ref:`quizzes <manage_quizzes>`. The structure and location of some resources inside the channel may have changed in the updated version, which can cause lessons and quizzes to not load correctly. 
 
-4. Click the :guilabel:`UPDATE CHANNEL` button.
-5. You will see the update progress in the **Task manager** page. Once the update concludes, the newly imported and updated resources will be available to use in Kolibri.
+#. After the channel has been updated to the newest version, you will see the page with the list of all the topics that contain new resources. Proceed to select what you want to import, or check **Select all** to import everything at once.
+
+    Review the number and disk size of selected resources at the bottom and click the :guilabel:`IMPORT` button.
+
+    .. figure:: /img/select-updated-resources.png
+      :alt: 
+
+      Select the resources you want to update.
+
+#. You will see the update progress in the **Tasks** page. Once the update concludes, the newly imported and updated resources will be available to use in Kolibri.
 
 
 .. warning:: 
@@ -245,15 +279,14 @@ To change the order in which channels are presented to learners on the **Learn >
 
 
 #. Click the :guilabel:`OPTIONS` button and select the **Edit channel order** option.
-#. In the *Edit channel order* page you can either:
+#. In the **Edit channel order** page you can either:
 
-    * Grab the |drag| button to reorder channels with the mouse (drag and drop).
-    * Use the |arrow-up| and |arrow-down| buttons to reorder by keyboard navigation.  
+    * Grab the |dragHorizontal| (drag) button to reorder channels with the mouse (drag and drop).
+    * Use the |chevronUp| (up) and |chevronDown| (down) buttons to reorder by keyboard navigation.  
 
   You will see a confirmation notification at the bottom every time you change the order of the channels.
 
 3. Close the *Edit channel order* to return to **Device > Channels**, and review their order on the **Learn > Channels** page.
-
 
 
 .. _export:
@@ -314,7 +347,7 @@ To delete one or more full channels with all of its resources from your device, 
 #. Click the :guilabel:`DELETE` button once you finish selecting, or :guilabel:`CANCEL` to exit without deleting the channel.
 
 #. If you are certain you want to proceed, click the :guilabel:`DELETE` button again in the **Delete channel** confirmation window.
-#. You will see the delete progress in the **Task manager** page. Once the delete task is completed, the channel(s) will not be listed in the **Channels** tab on the **Device** page.
+#. You will see the delete progress in the **Task manager** page. Once the delete task is completed, the channel(s) will not be listed in the |channel| **Channels** tab on the |device| **Device** page.
 
 
 Delete Selected Resources from a Channel

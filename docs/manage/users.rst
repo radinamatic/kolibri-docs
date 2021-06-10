@@ -3,15 +3,26 @@
 Users
 #####
 
-You can search for, filter, add, and edit user accounts in Kolibri from the **Users** tab in your **Facility** dashboard (|users| icon).
+You can search for, filter, add, and edit user accounts in Kolibri from the |people| **Users** tab in your |facility| **Facility** dashboard.
 
 	.. figure:: /img/manage-users.png
-	  :alt: Open Facility page and navigate to Users tab to see the the list of all the users, and access the options to manage them.
+	   :alt: Open Facility page and navigate to Users tab to see the the list of all the users, and access the options to manage them.
 
-.. TO-DO (image)
 
-.. note::
-  To manage Kolibri users you must sign in as **admin** or **super admin**.
+.. note::  If you have more than one facility on the device, you must first select a facility. Click on the name of the facility from the list to access its users.
+
+  .. figure:: /img/select-facility.png
+    :alt: After clicking the Facility option in the sidebar, select which one you want to work on.
+
+    Select a facility to access its users.
+
+Remember that to manage Kolibri users you must sign in as **admin** or **super admin**.
+
+..  raw:: html
+
+    <iframe width="670" height="380" src="https://www.youtube-nocookie.com/embed/-U_nNwBM2dE?rel=0&modestbranding=1&cc_load_policy=1&iv_load_policy=3" frameborder="0" allow="accelerometer; gyroscope" allowfullscreen></iframe><br /><br />
+
+Captions for the video are available in English, French, Swahili, Arabic, Hindi, Marathi and Brazilian Portuguese.
 
 
 Create a New User Account
@@ -22,12 +33,13 @@ To create a new user account, follow these steps.
 #. Click the :guilabel:`NEW USER` button.
 #. Fill in the required information (name, username, password).
 #. Select the user type (*Admin*, *Coach* or *Learner*).
+#. Add demographic data (optional).
 #. Click :guilabel:`SAVE` to add the new user.
 
 		.. figure:: /img/add-new-account.png
 		  :alt: 
 
-.. TO-DO (image)
+		  Add new user account.
 
 
 Coach Type
@@ -46,12 +58,11 @@ Select Users by Type
 --------------------
 
 #. Click to open the selector under **User type** to see filtering options. **All** users are displayed by default.
-#. Toggle between options (learners, coaches, admins) to display the users according to type.
+#. Toggle between options (learners, coaches, admins, super admins) to display the users according to type.
 
 	.. figure:: /img/select-users.png
 	  :alt: 
 
-.. TO-DO (image)
 
 Edit User’s Account
 -------------------
@@ -65,7 +76,6 @@ To edit username, full name or account type, follow these steps.
 	.. figure:: /img/edit-account-info.png
 	  :alt: 
 
-.. TO-DO (image)
 
 Reset User’s Password
 *********************

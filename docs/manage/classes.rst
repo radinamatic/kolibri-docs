@@ -3,13 +3,26 @@
 Classes
 #######
 
-You can view, create and delete classes, as well as search, filter and enroll Kolibri users in them, using the **Classes** tab in your **Facility** dashboard (|classes| icon). Default view displays the list of all classes in your facility, with the number of enrolled users for each class, and the coaches assigned.
+You can view, create and delete classes, as well as search, filter and enroll Kolibri users in them, using the |classes| **Classes** tab in your |facility| **Facility** dashboard. Default view displays the list of all classes in your facility, with the number of enrolled users for each class, and the coaches assigned.
 
   .. figure:: /img/classes.png
     :alt: Open Facility page and navigate to Classes tab to see the the list of all the classes, and access the options to manage them.
 
-.. note::
-  To manage Kolibri classes you must sign in as **admin** or **super admin**.
+  .. note::
+    If you have more than one facility on the device, you must first select a facility. Click on the name of the facility from the list to access its classes.
+
+    .. figure:: /img/select-facility.png
+      :alt: After clicking the Facility option in the sidebar, select which one you want to work on.
+
+      Select a facility to access its classes.
+
+To manage Kolibri classes you must sign in as **admin** or **super admin**.
+
+..  raw:: html
+
+    <iframe width="670" height="380" src="https://www.youtube-nocookie.com/embed/_tFyRB2lgEA?rel=0&modestbranding=1&cc_load_policy=1&iv_load_policy=3" frameborder="0" allow="accelerometer; gyroscope" allowfullscreen></iframe><br /><br />
+
+Captions for the video are available in English, French, Swahili, Arabic, Hindi, Marathi and Brazilian Portuguese.      
 
 
 Add New Class
@@ -37,7 +50,7 @@ To delete class, follow these steps.
 Edit Class, Learners and Coaches
 --------------------------------
 
-A newly created class does not have any learners or coaches. To edit a class select it from the default view in the **Classes** tab. In this view, you can change class name, add or remove currently enrolled learners and assign or remove coaches from the class.
+A newly created class does not have any learners or coaches. To edit a class select it from the default view in the |classes| **Classes** tab. In this view, you can change class name, add or remove currently enrolled learners and assign or remove coaches from the class.
 
   .. figure:: /img/new-class.png
     :alt: New class will have no enrolled learners and no assigned coaches.
@@ -70,7 +83,7 @@ Remove Learners from Class
       :alt: 
 
   .. note::
-    Learners removed from the class will not be deleted from the database, and you can still access their accounts from the **Users** tab in the **Facility** dashboard.
+    Learners removed from the class will not be deleted from the database, and you can still access their accounts from the |people| **Users** tab in the |facility| **Facility** dashboard.
 
 .. _assign_coaches:
 
@@ -99,7 +112,7 @@ Remove Coaches from a Class
     :alt: 
 
 .. note::
-  Coaches removed from the class will not be deleted from the database, and you can still access their accounts from the **Users** tab in the **Facility** dashboard.
+  Coaches removed from the class will not be deleted from the database, and you can still access their accounts from the |people| **Users** tab in the |facility| **Facility** dashboard.
 
 
 Rename Class

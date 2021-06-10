@@ -4,19 +4,24 @@
 Manage Quizzes
 --------------
 
-You can view, create and delete quizzes, as well as assign them to learners, using the **Quizzes** sub-tab in the **Plan** tab (|edit| icon) of your **Coach** dashboard. The default view displays the list of all quizzes in a selected class, with indicators of their visibility status and groups they are assigned to.
+You can view, create and delete quizzes, as well as assign them to learners, using the **Quizzes** sub-tab in the |edit| **Plan** tab of your |coach| **Coach** dashboard. The default view displays the list of all quizzes in a selected class, with indicators of their visibility status and groups they are assigned to.
 
   .. figure:: /img/manage-quizzes.png
     :alt: 
 
 .. note::
-  To manage **Quizzes** |exams| in Kolibri classes and groups you must sign in as **coach**, **admin** or **super admin**.
+  To manage |quiz| **Quizzes** in Kolibri classes and groups you must sign in as **coach**, **admin** or **super admin**.
 
+..  raw:: html
+
+    <iframe width="670" height="380" src="https://www.youtube-nocookie.com/embed/9r58yCOqjYk?rel=0&modestbranding=1&cc_load_policy=1&iv_load_policy=3" frameborder="0" allow="accelerometer; gyroscope" allowfullscreen></iframe><br /><br />
+
+Captions for the video are available in English, French, Swahili, Arabic, Hindi, Marathi and Brazilian Portuguese.
 
 Create New Quiz
 """""""""""""""
 
-To create a new quiz |exams|, click the :guilabel:`NEW QUIZ` button.
+To create a new |quiz| quiz, click the :guilabel:`NEW QUIZ` button.
 
 * Fill in the field for the quiz title in the *Create new quiz* page.
 * Adjust the number of questions you want the quiz to contain. You can use the arrow field value modifiers with the mouse, or :guilabel:`-` and :guilabel:`+` buttons if you are using the keyboard.  
@@ -27,7 +32,7 @@ To create a new quiz |exams|, click the :guilabel:`NEW QUIZ` button.
 
   As you keep adding and removing the exercises you will see confirmation messages at the bottom.
 
-* Use the **Search** feature to look for topics and exercises about a specific subject. Write the search term in the field, press the :guilabel:`ENTER` key or click the |search| button to display the results. 
+* Use the **Search** feature to look for topics and exercises about a specific subject. Write the search term in the field, press the :guilabel:`ENTER` key or click the |search| (search) button to display the results. 
    
     .. figure:: /img/search-exam-resources.png
       :alt: There are 3 filters available to refine the search; click to open each and select one of the options.
@@ -45,7 +50,7 @@ To create a new quiz |exams|, click the :guilabel:`NEW QUIZ` button.
     .. figure:: /img/questions-random.png
         :alt:    
 
-   * To present the same (*fixed*) question order to all learners, select :guilabel:`Fixed`. You can reorder the questions by using the |drag| button with the mouse (drag and drop), or with |arrow-up| and |arrow-down| buttons if you navigate by keyboard.
+   * To present the same (*fixed*) question order to all learners, select :guilabel:`Fixed`. You can reorder the questions by using the |dragHorizontal| (drag) button with the mouse (drag and drop), or with |chevronUp| (up) and |chevronDown| (down) buttons if you navigate by keyboard.
 
 
     .. figure:: /img/questions-fixed.png
@@ -59,16 +64,15 @@ To create a new quiz |exams|, click the :guilabel:`NEW QUIZ` button.
 Change Quiz Recipients
 """"""""""""""""""""""
 
-Newly created quizzes are by default visible to entire class. To change quiz *Recipients*, that is select group(s) of learners instead of the whole class, follow these steps.
+Newly created quizzes are by default visible to entire class. To change quiz *Recipients*, that is select groups or individual learners instead of the whole class, follow these steps.
 
 #. Select the desired quiz from the list in the **Quizzes** subtab.
 #. Click the :guilabel:`OPTIONS` button and select the **Edit details** option.
-#. Select the group(s) of learners to whom you wish to assign the quiz under the *Recipients* heading.
+#. Select the learners and groups to whom you wish to assign the quiz under the *Recipients* heading.
 #. Click :guilabel:`SAVE CHANGES` to confirm, or :guilabel:`CANCEL` to exit without change.
 
   .. figure:: /img/exam-visibility.png
     :alt: 
-
 
 Start and End Quiz
 """"""""""""""""""
@@ -79,11 +83,11 @@ Newly created quizzes are by default *not started*, meaning that learners will n
 
 * Click the :guilabel:`END QUIZ` button once the designated time had passed, and you want to stop learners from interacting with it.
   
-.. TO-DO (image)
+  .. figure:: /img/start-end-quiz.png
+    :alt: 
 
 .. note::
   You can also start and end the quiz from its **Report** page, and the list in the **Reports > Quizzes** subtab.
-
 
 
 Copy Quiz
@@ -93,12 +97,8 @@ To copy a quiz to a different group or another class, follow these steps.
 
 #. Select the desired quiz from the list in the **Quizzes** subtab.
 #. Click :guilabel:`OPTIONS` and select **Copy quiz**.
-
-    .. figure:: /img/copy-exam.png
-      :alt: Use the radio buttons to select the class where you want to copy the quiz to.
-
 #. Select the class to which you wish to copy the quiz to and click :guilabel:`CONTINUE`.
-#. If the destination class has more than one group, select **Entire class** or the group(s) of learners to whom you wish to assign the lesson.
+#. Select the entire class, groups or inidividual learners to whom you wish to assign the quiz under the *Assign quiz to* heading.
 #. Click :guilabel:`COPY` to confirm, or :guilabel:`CANCEL` to exit without change.
 
 If the quiz is copied to another group in the same class, it will appear in the **Quizzes** tab as the *Copy of...*. Follow the steps in the next section to rename it.
